@@ -6,14 +6,14 @@ spring:
 --- #分割文件，可以避免属性重复
 spring:
   profiles: dev
-    application:
-      name: microserivcecloud-config-dev
+  application:
+    name: microserivcecloud-config-dev
 
 --- #分割文件，可以避免属性重复
 spring:
   profiles: test
-    application:
-      name: microserivcecloud-config-test
+  application:
+    name: microserivcecloud-config-test
 #注意：要使用UTF-8保存
 
 
