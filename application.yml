@@ -1,8 +1,7 @@
 #file  header
 spring:
   profiles:
-    active: 
-	- dev
+    -- active: dev
 
 --- #分割文件，可以避免属性重复
 spring:
