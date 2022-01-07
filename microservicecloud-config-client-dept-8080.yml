@@ -20,7 +20,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: eureka7001.com:7001/eureka #单机
+      defaultZone: http://eureka7001.com:7001/eureka #单机
   instance:
     instance-id: micro-dept-dev-8080 #自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址
@@ -49,7 +49,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: eureka7001.com:7001/eureka #单机
+      defaultZone: http://eureka7001.com:7001/eureka #单机
   instance:
     instance-id: micro-dept-test-8080 #自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址
