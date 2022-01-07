@@ -1,0 +1,41 @@
+
+server:
+  port: 7001  #启动端口号
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #不向注册中心注册自己
+    fetch-registry: false #false表示自己就是注册中心，维护服务实例，不去检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #单机
+#      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #集群
+
+
+--- #分割文件，可以避免属性重复
+server:
+  port: 8201
+spring:
+  profiles: dev
+  application:
+    name: microserivcecloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+--- #分割文件，可以避免属性重复
+server:
+  port: 8202
+spring:
+  profiles: test
+  application:
+    name: microserivcecloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+#注意：要使用UTF-8保存
+
+

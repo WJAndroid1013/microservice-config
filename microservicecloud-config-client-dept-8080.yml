@@ -1,0 +1,62 @@
+logging:
+  level:
+    com.wj: debug  #上线前，修改
+
+---
+server:
+  port: 8080  #启动端口号
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-client-dept-8080
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    #应对sqlite库级所问题，加长忙碌等待时间 单位为毫秒，现在设置 1个小时
+    url: jdbc:sqlite:db/dept.db?busy_timeout=3600000
+    username:
+    password:
+
+#将服务注册到eureka服务
+eureka:
+  client:
+    service-url:
+      defaultZone: eureka7001.com:7001/eureka #单机
+  instance:
+    instance-id: micro-dept-dev-8080 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: atguigu-microservicecloud-dev
+  company.name: www.wj.com
+  build.antifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+server:
+  port: 8080  #启动端口号
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-client-dept-8080
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    #应对sqlite库级所问题，加长忙碌等待时间 单位为毫秒，现在设置 1个小时
+    url: jdbc:sqlite:db/dept2.db?busy_timeout=3600000
+    username:
+    password:
+
+#将服务注册到eureka服务
+eureka:
+  client:
+    service-url:
+      defaultZone: eureka7001.com:7001/eureka #单机
+  instance:
+    instance-id: micro-dept-test-8080 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: atguigu-microservicecloud-test
+  company.name: www.wj.com
+  build.antifactId: $project.artifactId$
+  build.version: $project.version$
+
